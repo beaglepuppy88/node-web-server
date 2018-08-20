@@ -33,8 +33,7 @@ app.use((req, res, next) => {
 app.use(express.static(__dirname + '/public'));
 
 hbs.registerHelper('getCurrentYear', () => {
-  //return new Date().getFullYear()
-  return "Hello";
+  return new Date().getFullYear()
  });
 
  hbs.registerHelper('screamIt', (text) => {
@@ -52,6 +51,12 @@ app.get('/', (req, res) => {
 app.get('/about', (req, res) => {
     res.render('about.hbs', {
         pageTitle: 'About Page',
+      });
+  });
+
+  app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {
+        pageTitle: 'About Projects',
       });
   });
 
